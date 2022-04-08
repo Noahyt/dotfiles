@@ -1,0 +1,7 @@
+Host *
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host hrc
+  HostName login.rc.fas.harvard.edu
+  User ntoyonaga
