@@ -1,0 +1,6 @@
+# Files for Chezmoi to ignore when performing diff.
+# This is relevant for packages which are installed via an external source.
+# i.e. in `chezmoiexternal.toml`
+.oh-my-zsh/cache
+.oh-my-zsh/cache/**
+.oh-my-zsh/**/*.zwc
