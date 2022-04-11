@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " MY PLUGINS
 Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+Plugin 'chrisbra/csv.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -25,6 +26,9 @@ filetype plugin indent on    " required
 " CODING
 " syntax highlighting
 syntax enable
+
+" LINE NUMBERS
+set number
 
 " KEY REMAPS
 nnoremap <C-J> <C-W><C-J>
