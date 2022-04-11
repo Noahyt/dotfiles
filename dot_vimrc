@@ -16,6 +16,9 @@ Plugin 'VundleVim/Vundle.vim'
 " MY PLUGINS
 Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 Plugin 'chrisbra/csv.vim'
+"Plugin 'rbong/vim-crystalline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,6 +42,11 @@ nnoremap <C-H> <C-W><C-H>
 " VISUAL SETTINGS
 " COLOR SCHEME
 colorscheme embark
+
+" AIRLINE COLORSCHEME
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
+set laststatus=2
 
 " SPLIT PLANE SETTINGS
 set splitbelow
