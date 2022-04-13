@@ -7,24 +7,27 @@ set termguicolors
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" MY PLUGINS
+" >>>>>>>> MY PLUGINS<<<<<<<
+"
 Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 Plugin 'chrisbra/csv.vim'
 "Plugin 'rbong/vim-crystalline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" All of your Plugins must be added before the following line
+" FERN
+Plugin 'lambdalisue/fern.vim'
+Plugin 'lambdalisue/fern-git-status.vim'
+
 call vundle#end()            " required
-filetype plugin indent on    " required
+
+"filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
+
 
 " CODING
 " syntax highlighting
