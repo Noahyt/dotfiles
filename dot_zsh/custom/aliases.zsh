@@ -4,6 +4,7 @@ alias cm="chezmoi"
 # SHORTCUTS
 export HRC_DATA="/n/holyscratch01/mahadevan_lab/ntoyonaga"
 export EDITOR="vim"
+export CIS_DATA="/Users/quinoah/Documents/data"
 
 # FUNCTIONS
 hrc_sync () {
