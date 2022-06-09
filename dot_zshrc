@@ -7,7 +7,7 @@ fi
 
 
 # LOAD ANTIGEN (package manager for zsh).
-source /usr/local/share/antigen/antigen.zsh
+source $(brew --prefix)/share/antigen/antigen.zsh
 antigen init ~/.antigenrc
 
 # CUSTOMIZE POWERLEVEL10K THEME
