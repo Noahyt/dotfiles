@@ -18,9 +18,14 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+Plugin 'Yggdroot/indentLine'
+
 " FERN
 Plugin 'lambdalisue/fern.vim'
 Plugin 'lambdalisue/fern-git-status.vim'
+
+" MARKDOWN
+Plugin 'gabrielelana/vim-markdown'
 
 call vundle#end()            " required
 
@@ -36,14 +41,22 @@ syntax enable
 " LINE NUMBERS
 set number
 
+" SHOW SPACES
+set lcs+=space:·
+set list
+
+
 " KEY REMAPS
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" TAB STUFF.
 " REVERSE TAB in INSERT MODE
 inoremap <S-Tab> <C-d>
+vnoremap <TAB> >gv
+vnoremap <S-TAB> <gv
 
 " VISUAL SETTINGS
 " COLOR SCHEME
