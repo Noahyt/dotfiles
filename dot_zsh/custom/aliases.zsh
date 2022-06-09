@@ -21,6 +21,9 @@ hrc_sync () {
 helpme () {
 	cat<<EOF
 	### DOTFILES ###
+	To show all dotfiles in a directory:
+		 ls -A
+
 	To edit dotfiles: use \`chezmoi\`.
 		edit: $ cm edit \$FILE
 		apply $ cm apply 
