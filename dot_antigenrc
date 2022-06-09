@@ -1,0 +1,22 @@
+# Manage `zsh` packages using `Antigen`.
+# https://github.com/zsh-users/antigen
+
+# Load `oh-my-zsh`
+antigen use oh-my-zsh
+
+# Bundles.
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Bundles from `zsh-users`
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Theme.
+antigen theme romkatv/powerlevel10k
+
+# Apply.
+antigen apply
