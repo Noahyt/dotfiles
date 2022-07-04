@@ -33,11 +33,17 @@ Plugin 'lambdalisue/fern-git-status.vim'
 " MARKDOWN
 Plugin 'gabrielelana/vim-markdown'
 
+" GIT
+Plugin 'tpope/vim-fugitive'
+
+" LATEX
+Plugin 'lervag/vimtex'
+
 call vundle#end()            " required
 
-"filetype plugin indent on    " required
+filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-filetype plugin on
+" filetype plugin on
 
 
 " CODING
@@ -46,6 +52,17 @@ syntax enable
 
 " LINE NUMBERS
 set number
+
+
+" CONCEALING [MAY BE CHANGED BY `ftplugin` files]
+" Default
+set conceallevel=1
+" default ''.
+" n for Normal mode
+" v for Visual mode
+" i for Insert mode
+" c for Command line editing, for 'incsearch'
+set concealcursor="nv"
 
 " SHOW SPACES
 set lcs+=space:·
@@ -94,3 +111,7 @@ let g:fern#renderer#default#expanded_symbol = "├┬ "
 
 " ALE
 let g:ale_sign_error = '●'
+
+" Let indentLine use current conceal options
+let g:indentLine_conceallevel  = &conceallevel
+let g:indentLine_concealcursor = &concealcursor

@@ -10,6 +10,10 @@ alias gd="cd ~/Documents"
 export HRC_DATA="/n/holyscratch01/mahadevan_lab/ntoyonaga"
 export EDITOR="vim"
 
+
+# FOR `zathura`
+export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
+
 # FUNCTIONS
 hrc_sync () {
 	SOURCE_FOLDER=${1}
