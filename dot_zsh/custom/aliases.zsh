@@ -1,13 +1,14 @@
-# ALIASES
+
+### ALIASES
 alias cm="chezmoi" 
 
-# SHORTCUTS
+# Go to commands.
+alias gd="cd ~/Documents"
+
+
+### SHORTCUTS
 export HRC_DATA="/n/holyscratch01/mahadevan_lab/ntoyonaga"
 export EDITOR="vim"
-export CIS_DATA="/Users/quinoah/Documents/data"
-
-export FABRIC="/Users/quinoah/Documents/FABRIC"
-
 
 # FUNCTIONS
 hrc_sync () {
