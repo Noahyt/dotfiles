@@ -3,7 +3,7 @@
 alias cm="chezmoi" 
 
 # Go to commands.
-alias gd="cd ~/Documents"
+alias cdd="cd ~/Documents"
 
 
 ### SHORTCUTS
