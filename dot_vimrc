@@ -30,6 +30,9 @@ Plugin 'ambv/black'
 Plugin 'lambdalisue/fern.vim'
 Plugin 'lambdalisue/fern-git-status.vim'
 
+" COMMETNER
+Plugin 'tpope/vim-commentary'
+
 " MARKDOWN
 Plugin 'gabrielelana/vim-markdown'
 
@@ -52,6 +55,7 @@ syntax enable
 
 " LINE NUMBERS
 set number
+set relativenumber
 
 
 " CONCEALING [MAY BE CHANGED BY `ftplugin` files]
@@ -108,6 +112,19 @@ let g:fern#renderer#default#root_symbol = "┬ "
 let g:fern#renderer#default#leaf_symbol = "├─ "
 let g:fern#renderer#default#collapsed_symbol = "├─ "
 let g:fern#renderer#default#expanded_symbol = "├┬ "
+
+" Exclute some files from Fern viewer.
+let g:fern#default_hidden=1
+
+" Add dirs and files inside the brackets that need to remain hidden
+let hide_dirs  = '^\%(\.git\|node_modules\)$'  " here you write the dir names 
+let hide_files = '\%(\.aux\|\.fls\|\.fdb_latexmk\|\.synctex.gz\|\.toc\)\+'    " here you write the file names
+
+let g:fern#default_exclude = hide_dirs . '\|' . hide_files  " here you exclude them
+
+" COMMENTARY.VIM
+xmap gg <PLUG>Commentary
+nmap gg <PLUG>Commentary
 
 " ALE
 let g:ale_sign_error = '●'
