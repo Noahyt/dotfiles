@@ -5,6 +5,8 @@ alias cm="chezmoi"
 # Go to commands.
 alias cdd="cd ~/Documents"
 
+# Change `mv` to default to check in before overwrite.
+alias mv="mv -i"
 
 ### SHORTCUTS
 export HRC_DATA="/n/holyscratch01/mahadevan_lab/ntoyonaga"
