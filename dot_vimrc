@@ -53,6 +53,27 @@ filetype plugin indent on    " required
 " syntax highlighting
 syntax enable
 
+
+" VISUAL SETTINGS
+" COLOR SCHEME
+colorscheme embark
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+"  set termguicolors
+endif
+
+" AIRLINE COLORSCHEME
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+" LINE NUMBERS
+highlight LineNr ctermfg=LightGreen
+
+
+
+
 " LINE NUMBERS
 set number
 set relativenumber
@@ -88,19 +109,6 @@ inoremap <S-Tab> <C-d>
 vnoremap <TAB> >gv
 vnoremap <S-TAB> <gv
 
-" VISUAL SETTINGS
-" COLOR SCHEME
-colorscheme embark
-if exists('+termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-"  set termguicolors
-endif
-
-" AIRLINE COLORSCHEME
-let g:airline_theme='bubblegum'
-let g:airline_powerline_fonts = 1
-set laststatus=2
 
 " SPLIT PLANE SETTINGS
 set splitbelow
