@@ -11,7 +11,7 @@ alias mv="mv -i"
 ### SHORTCUTS
 export HRC_DATA="/n/holyscratch01/mahadevan_lab/ntoyonaga"
 export EDITOR="vim"
-
+export WRITING="~/Documents/WRITING"
 
 # FOR `zathura`
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
