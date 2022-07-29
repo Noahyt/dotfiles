@@ -146,6 +146,8 @@ nmap gg <PLUG>Commentary
 
 " ALE
 let g:ale_sign_error = '●'
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
 
 " Let indentLine use current conceal options
 let g:indentLine_conceallevel  = &conceallevel
