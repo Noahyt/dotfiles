@@ -49,9 +49,19 @@ filetype plugin indent on    " required
 " filetype plugin on
 
 
+" SEARCH CONFIG
+set is " Enable incremental search.
+set hls " Highlight all matches.
+nnoremap <CR> :noh<CR><CR> "This unsets the "last search pattern" register by hitting return
+
+
 " CODING
 " syntax highlighting
 syntax enable
+
+
+" AUTOCOMPLETE (Omni-complete)
+set omnifunc=syntaxcomplete#Complete
 
 
 " VISUAL SETTINGS
@@ -126,7 +136,7 @@ let g:fern#default_hidden=1
 
 " Add dirs and files inside the brackets that need to remain hidden
 let hide_dirs  = '^\%(\.git\|node_modules\)$'  " here you write the dir names 
-let hide_files = '\%(\.aux\|\.fls\|\.fdb_latexmk\|\.synctex.gz\|\.toc\)\+'    " here you write the file names
+let hide_files = '\%(\.aux\|\.fls\|\.fdb_latexmk\|\.synctex.gz\|\.toc\|\.bbl\|\.blg\|\.log\)\+'    " here you write the file names
 
 let g:fern#default_exclude = hide_dirs . '\|' . hide_files  " here you exclude them
 
