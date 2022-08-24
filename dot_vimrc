@@ -10,15 +10,21 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " >>>>>>>> MY PLUGINS<<<<<<<
-"
+" THEMES
 Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 Plugin 'chrisbra/csv.vim'
 "Plugin 'rbong/vim-crystalline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" SNIPPETS
+Plugin 'SirVer/ultisnips'
+
 "CODING
 Plugin 'Yggdroot/indentLine'
+
+"CODE COMPLETION
+Plugin 'ycm-core/YouCompleteMe'
 
 "LINTER
 Plugin 'dense-analysis/ale'
@@ -42,6 +48,9 @@ Plugin 'tpope/vim-fugitive'
 " LATEX
 Plugin 'lervag/vimtex'
 
+" LATEX SNIPPETS
+Plugin 'honza/vim-snippets'
+
 call vundle#end()            " required
 
 filetype plugin indent on    " required
@@ -52,7 +61,8 @@ filetype plugin indent on    " required
 " SEARCH CONFIG
 set is " Enable incremental search.
 set hls " Highlight all matches.
-nnoremap <CR> :noh<CR><CR> "This unsets the "last search pattern" register by hitting return
+" This unsets the "last search pattern" register by hitting return
+:nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
 
 " CODING
@@ -62,6 +72,14 @@ syntax enable
 
 " AUTOCOMPLETE (Omni-complete)
 set omnifunc=syntaxcomplete#Complete
+
+" SNIPPETS CONFIG
+let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
+let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
+
+" snippet location.
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 
 " VISUAL SETTINGS
