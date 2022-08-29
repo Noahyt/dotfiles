@@ -5,7 +5,21 @@
 
 # Antigen (Package manager for `zsh`) 
 brew install antigen
+{{ else if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env zsh
+
+# Antigen
+curl -L git.io/antigen > antigen.zsh
+
+{{ end -}}
+
 
 # Install Vundle (package manager for `Vim`).
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-{{ end -}}
+if [ -e ~/.vim/bundle/Vundle.vim ]
+then
+	echo "Vundle already installed."
+else
+	echo "Vundle not found, installing."
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
