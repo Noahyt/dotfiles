@@ -1,16 +1,29 @@
+###############
+### ALIASES ###
+###############
 
-### ALIASES
+# SHORTCUT-LIKE ALIASES.
+# These aliases use non-existing keywords.
 alias cm="chezmoi" 
 
 # Go to commands.
 alias cdd="cd ~/Documents"
 
+## OVERRIDE ALIASES.
+# These aliases change the behaviour of existing functions/pograms.
+
 # Change `mv` to default to check in before overwrite.
 alias mv="mv -i"
 
-### SHORTCUTS
+# Default to use `nvim`.
+alias vim="nvim"
+
+#################
+### SHORTCUTS ###
+#################
+
 export HRC_DATA="/n/holyscratch01/mahadevan_lab/ntoyonaga"
-export EDITOR="vim"
+export EDITOR="nvim"
 export WRITING="~/Documents/WRITING"
 
 # FOR `zathura`
