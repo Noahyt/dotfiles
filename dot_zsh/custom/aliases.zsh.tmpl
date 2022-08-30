@@ -1,3 +1,22 @@
+####################
+### MODIFY PATH ####
+####################
+
+{{ if eq .chezmoi.os "linux" -}}
+
+# On cluster these are not managed by a package manager so we need
+# to source them manually.
+
+# CHEZMOI
+export PATH={{ .tool_path }}/tools/chezmoi/:${PATH}
+
+# NVIM
+export PATH={{ .tool_path }}/nvim-linux64/bin:${PATH}
+
+{{ end -}}
+
+
+
 ###############
 ### ALIASES ###
 ###############
