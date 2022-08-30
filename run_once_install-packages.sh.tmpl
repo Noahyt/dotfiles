@@ -11,15 +11,17 @@ brew install antigen
 # All tools are installed to `tool_path` which should be specified in `chezmoi.toml`.
 
 # Antigen
-curl -L git.io/antigen > {{ .tool_path }}/antigen.zsh
+ANTIGEN_PATH={{ .tool_path }}antigen
+mkdir ${ANTIGEN_PATH}
+curl -L git.io/antigen > ${ANTIGEN_PATH}/antigen.zsh
 
 # Install nvim
-wget -P {{ .tool_path }} https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
-tar zxvf {{ .tool_path }}nvim-linux64.tar.gz
-
+wget -P {{ .tool_path }}nvim https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+NVIM_TAR='{{ .tool_path -}}nvim/nvim-linux64.tar.gz' 
+tar zxvf ${NVIM_TAR} -C {{ .tool_path }}nvim --strip-components=1
+rm ${NVIM_TAR}
 
 {{ end -}}
-
 
 # Install Vundle (package manager for `Vim`).
 if [ -e ~/.vim/bundle/Vundle.vim ]

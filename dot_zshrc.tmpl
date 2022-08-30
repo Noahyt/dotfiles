@@ -23,7 +23,11 @@ unset __conda_setup
 {{ end -}}
 
 # LOAD ANTIGEN (package manager for zsh).
+{{ if eq .chezmoi.os "darwin" -}}
 source $(brew --prefix)/share/antigen/antigen.zsh
+{{ else if eq .chezmoi.os "linux" -}}
+source {{ .tool_path }}antigen/antigen.zsh
+{{- end }}
 antigen init ~/.antigenrc
 
 # CUSTOMIZE POWERLEVEL10K THEME
