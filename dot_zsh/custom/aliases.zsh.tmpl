@@ -25,6 +25,19 @@ export PATH={{ .tool_path }}nvim/bin:${PATH}
 # These aliases use non-existing keywords.
 alias cm="chezmoi" 
 
+{{ if eq .chezmoi.os "linux" -}}
+# 
+export MY_SCRATCH="/n/holyscratch01/mahadevan_lab/ntoyonaga"
+export JOB_LOGS="/n/home02/ntoyonaga/job_logs"
+export LABSTORE="/n/holylabs/LABS/mahadevan_lab"
+
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
+alias myq="squeue -u ntoyonaga"
+
+{{ end -}}
+
 # Go to commands.
 alias cdd="cd ~/Documents"
 
