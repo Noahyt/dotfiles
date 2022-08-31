@@ -2,6 +2,13 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 
+" SET PYTHON, IF USING.
+
+{{ if .vim_use_python -}}
+" Sets python path.
+let g:python3_host_prog = '{{- .vim_python_path -}}'
+{{ end }}
+
 " VUNDLE
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -23,14 +30,9 @@ Plugin 'SirVer/ultisnips'
 "CODING
 Plugin 'Yggdroot/indentLine'
 
-"CODE COMPLETION
-Plugin 'ycm-core/YouCompleteMe'
 
 "LINTER
 Plugin 'dense-analysis/ale'
-
-" BLACK [[CODE FORMATTER]]
-Plugin 'ambv/black'
 
 " FERN
 Plugin 'lambdalisue/fern.vim'
@@ -51,11 +53,29 @@ Plugin 'lervag/vimtex'
 " LATEX SNIPPETS
 Plugin 'honza/vim-snippets'
 
+
+" PYTHON REQUIRED PLUGINS.
+{{ if .vim_use_python }}
+" BLACK [[CODE FORMATTER]]
+Plugin 'psf/black'
+
+"CODE COMPLETION
+Plugin 'ycm-core/YouCompleteMe'
+{{ end }}
+
+
 call vundle#end()            " required
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
+
+" PYTHON REQUIRED CONFIG
+{{ if .vim_use_python }}
+" BLACK [[CODE FORMATTER]]
+let g:python3env = fnamemodify(g:python3_host_prog, ":h:h")
+let g:black_virtualenv = g:python3env
+{{ end }}
 
 
 " SEARCH CONFIG
