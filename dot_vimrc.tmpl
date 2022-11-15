@@ -93,13 +93,21 @@ syntax enable
 " AUTOCOMPLETE (Omni-complete)
 set omnifunc=syntaxcomplete#Complete
 
-" SNIPPETS CONFIG
-let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
-let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
-let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
+
+" UltiSnips triggering
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " snippet location.
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+
+" ###################
+" # SEARCH BEHAVIOR #
+" ###################
+
+" Ignore the case when searching (i.e. /ABCabc returns same as /abcabc) 
+set ignorecase
 
 
 " VISUAL SETTINGS
