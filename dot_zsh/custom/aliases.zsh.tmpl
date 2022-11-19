@@ -16,6 +16,10 @@ export PATH={{ .tool_path }}nvim/bin:${PATH}
 {{ end -}}
 
 
+{{ if .vim_use_python -}}
+export VIMPYTHON='{{- .vim_python_path -}}'
+{{ end }}
+
 
 ###############
 ### ALIASES ###
