@@ -29,6 +29,13 @@ export VIMPYTHON='{{- .vim_python_path -}}'
 # These aliases use non-existing keywords.
 alias cm="chezmoi" 
 
+# Shortcut to important folders.
+export ABOUT_ME_DIR={{ .about_me_path }}
+
+# Shortcuts to templates.
+export MY_TEMPLATES_DIR=${ABOUT_ME_DIR}templates/
+export MY_WRITING_TEMPLATE_DIR=${MY_TEMPLATES_DIR}writing/
+
 {{ if eq .chezmoi.os "linux" -}}
 # 
 export MY_SCRATCH="/n/holyscratch01/mahadevan_lab/ntoyonaga"
@@ -73,9 +80,22 @@ hrc_sync () {
 	rsync -avP --update ntoyonaga@login.rc.fas.harvard.edu:/n/holyscratch01/mahadevan_lab/ntoyonaga/${SOURCE_FOLDER} ${DESTINATION_FOLDER}
 }
 
+
+# Create New Latex Document.
+new_document () {
+	cp ${MY_WRITING_TEMPLATE_DIR}basic_article.tex ./basic_article.tex 
+	cp ${MY_WRITING_TEMPLATE_DIR}preamble.sty ./preamble.sty
+}
+
+
 # DOCUMENTATION.
 helpme () {
 	cat<<EOF
+	### FUNCTIONS ### 
+
+	new_document
+		Makes a new Tex document in current folder using the default template (found at ${MY_WRITING_TEMPLATE_DIR}).
+
 	### DOTFILES ###
 	To show all dotfiles in a directory:
 		 ls -A
@@ -86,6 +106,9 @@ helpme () {
 	
 	Aliases are located at:
 		~/.zsh/custom/aliases.zsh
+	
+	For further information about dotfile management, see ${ABOUT_ME_DIR}.
+	
 
 	### HARVARD ###
 	hrc_sync
