@@ -15,7 +15,7 @@ let g:vimtex_syntax_conceal = {
   \ 'math_super_sub': 0,
   \ 'math_symbols': 0,
   \ 'sections': 0,
-  \ 'styles': 1,
+  \ 'styles': 0,
   \}
 
 " Tex checking.
