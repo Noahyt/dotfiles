@@ -83,7 +83,13 @@ hrc_sync () {
 
 # Create New Latex Document.
 new_document () {
-	cp ${MY_WRITING_TEMPLATE_DIR}basic_article.tex ./basic_article.tex 
+	if (( ${#} == 0 )); then
+		NEW_NAME=new_article.tex
+	elif (( ${#} == 1)); then
+		NEW_NAME=${1}
+	fi
+	print  "creating new document: ${NEW_NAME}.tex"
+	cp ${MY_WRITING_TEMPLATE_DIR}basic_article.tex ./${NEW_NAME}.tex 
 	cp ${MY_WRITING_TEMPLATE_DIR}preamble.sty ./preamble.sty
 }
 
