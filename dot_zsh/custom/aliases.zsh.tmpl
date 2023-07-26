@@ -29,8 +29,17 @@ export VIMPYTHON='{{- .vim_python_path -}}'
 # These aliases use non-existing keywords.
 alias cm="chezmoi" 
 
+
 # Shortcut to important folders.
+# If the directory is defined! (Don't need many of these e.g. on a cluster.) 
+
+#  ABOUT_ME
+{{ if hasKey . "about_me_path" }}
 export ABOUT_ME_DIR={{ .about_me_path }}
+{{- else -}}
+# Not defined on this machine. 
+# Edit `~/.config/chezmoi/chezmoi.toml` 
+{{- end }}
 
 # Shortcuts to templates.
 export MY_TEMPLATES_DIR=${ABOUT_ME_DIR}templates
@@ -118,6 +127,12 @@ new_presentation () {
 # DOCUMENTATION.
 helpme () {
 	cat<<EOF
+	### DIRECTORIES ###
+
+	ABOUT_ME_DIR 
+		explicit: ${ABOUT_ME_DIR}
+		description: Personal documents and references.
+
 	### FUNCTIONS ### 
 
 	new_document
