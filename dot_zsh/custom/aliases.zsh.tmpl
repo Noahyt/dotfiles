@@ -30,7 +30,11 @@ export VIMPYTHON='{{- .vim_python_path -}}'
 alias cm="chezmoi" 
 
 {{ if eq .chezmoi.os "linux" -}}
-# 
+
+# Load `module` commands.
+. $LMOD_PKG/init/zsh
+
+# Useful directory shortcuts.
 export MY_SCRATCH="/n/holyscratch01/mahadevan_lab/ntoyonaga"
 export JOB_LOGS="/n/home02/ntoyonaga/job_logs"
 export LABSTORE="/n/holylabs/LABS/mahadevan_lab"
@@ -39,6 +43,9 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
 alias myq="squeue -u ntoyonaga"
+
+# Get temp machine
+alias testmachine="salloc --mem=8G --time=1:00:00"
 
 {{ end -}}
 
