@@ -1,0 +1,19 @@
+#!/bin/sh
+
+SEARCH_DIRECTORY=${1}
+FILE_NAME_STRING=${2}
+TARGET_DIRECTORY=${3}
+
+echo "looking for ${FILE_NAME_STRING} at ${SEARCH_DIRECTORY}"
+
+cd ${SEARCH_DIRECTORY}
+find . -mindepth 2 -maxdepth 3 -type f -name "${FILE_NAME_STRING}*" | while read filename; do
+ path_name=${filename%/*}
+ # immediate_parent=$(basename ${path_name})
+ BASE_DIRECTORY=$(echo "${path_name}" | cut -d "/" -f2)
+ base_name=${filename##*/}
+ new_name="${BASE_DIRECTORY}_${base_name}"
+ target="${TARGET_DIRECTORY}/$new_name"
+ echo "copy ${filename} to ${target}" 
+ cp "${filename}" "${target}" 
+done
