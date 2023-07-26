@@ -1,0 +1,5 @@
+[".slurm_tools"]
+	type = "git-repo"
+	url = "https://github.com/Noahyt/slurm_tools"
+	exact = true 
+	refresh = "168h"

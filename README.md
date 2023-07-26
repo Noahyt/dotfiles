@@ -36,8 +36,8 @@ Note that the $VIMPYTHON variable is set to `vim_python_path`.
 
 Set up python:
 
-1. Install `neovim` python package: 
-```$VIMPYTHON -m pip install neovim```
+1. Install python package: 
+```$VIMPYTHON -m pip install neovim black pylint```
 
 2. Follow `youcompleteme` install guide [here](https://github.com/ycm-core/YouCompleteMe#macos).
 

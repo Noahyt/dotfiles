@@ -29,6 +29,14 @@ export VIMPYTHON='{{- .vim_python_path -}}'
 # These aliases use non-existing keywords.
 alias cm="chezmoi" 
 
+# Shortcut to important folders.
+export ABOUT_ME_DIR={{ .about_me_path }}
+
+# Shortcuts to templates.
+export MY_TEMPLATES_DIR=${ABOUT_ME_DIR}templates
+export MY_WRITING_TEMPLATE_DIR=${MY_TEMPLATES_DIR}/writing
+export MY_PRESENTATION_TEMPLATE_DIR=${MY_TEMPLATES_DIR}/presentation
+
 {{ if eq .chezmoi.os "linux" -}}
 
 # Load `module` commands.
@@ -46,6 +54,9 @@ alias myq="squeue -u ntoyonaga"
 
 # Get temp machine
 alias testmachine="salloc --mem=8G --time=1:00:00"
+
+# Cancel all running jobs.
+alias·scancelALL="squeue·-u·$USER·|·awk·'{print·$1}'·|·tail·-n+2·|·xargs·scancel"
 
 {{ end -}}
 
@@ -80,9 +91,41 @@ hrc_sync () {
 	rsync -avP --update ntoyonaga@login.rc.fas.harvard.edu:/n/holyscratch01/mahadevan_lab/ntoyonaga/${SOURCE_FOLDER} ${DESTINATION_FOLDER}
 }
 
+
+# Create New Latex Document.
+new_document () {
+	if (( ${#} == 0 )); then
+		NEW_NAME=new_article
+	elif (( ${#} == 1)); then
+		NEW_NAME=${1}
+	fi
+	print  "creating new document: ${NEW_NAME}.tex"
+	cp ${MY_WRITING_TEMPLATE_DIR}/basic_article.tex ./${NEW_NAME}.tex 
+	cp ${MY_WRITING_TEMPLATE_DIR}/preamble.sty ./preamble.sty
+}
+
+# Create New PowerPoint Presentation.
+new_presentation () {
+	if (( ${#} == 0 )); then
+		NEW_NAME=new_presentation
+	elif (( ${#} == 1)); then
+		NEW_NAME=${1}
+	fi
+	print  "creating new presentation: ${NEW_NAME}.pptx"
+	cp ${MY_PRESENTATION_TEMPLATE_DIR}/basic_presentation.pptx ./${NEW_NAME}.pptx
+}
+
 # DOCUMENTATION.
 helpme () {
 	cat<<EOF
+	### FUNCTIONS ### 
+
+	new_document
+		Makes a new Tex document in current folder using the default template (found at ${MY_WRITING_TEMPLATE_DIR}).
+
+	new_presentation	
+		Makes a new powerpoint document in current folder using the default template (found at ${MY_PRESENTATION_TEMPLATE_DIR}).
+
 	### DOTFILES ###
 	To show all dotfiles in a directory:
 		 ls -A
@@ -93,6 +136,9 @@ helpme () {
 	
 	Aliases are located at:
 		~/.zsh/custom/aliases.zsh
+	
+	For further information about dotfile management, see ${ABOUT_ME_DIR}.
+	
 
 	### HARVARD ###
 	hrc_sync

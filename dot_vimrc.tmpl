@@ -89,6 +89,8 @@ set hls " Highlight all matches.
 " syntax highlighting
 syntax enable
 
+" SPELLING 
+set spell
 
 " AUTOCOMPLETE (Omni-complete)
 set omnifunc=syntaxcomplete#Complete
@@ -151,6 +153,10 @@ set list
 
 
 " KEY REMAPS
+
+" esc (in insert use `kj`)
+inoremap kj <Esc>
+
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -192,6 +198,7 @@ nmap gg <PLUG>Commentary
 
 " ALE
 let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
