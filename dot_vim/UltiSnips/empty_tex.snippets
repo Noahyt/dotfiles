@@ -61,3 +61,22 @@ endsnippet
 snippet toinf "to infinity"
 \rightarrow\infty
 endsnippet
+
+# GRAPHICS
+
+
+
+
+snippet "multifig(\d+)" "create subfigure" br
+\begin{figure}
+\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+	\centering
+	\includegraphics[width=`!p snip.rv = 1./float(re.search("\d+", match[0])[0])`\textwidth]{graph1}
+	\caption{$4}
+	\label{fig:$3}
+	\end{subfigure}
+\caption{$2}
+\label{fig:$1}
+\end{figure}
+endsnippet
