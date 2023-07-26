@@ -33,8 +33,9 @@ alias cm="chezmoi"
 export ABOUT_ME_DIR={{ .about_me_path }}
 
 # Shortcuts to templates.
-export MY_TEMPLATES_DIR=${ABOUT_ME_DIR}templates/
-export MY_WRITING_TEMPLATE_DIR=${MY_TEMPLATES_DIR}writing/
+export MY_TEMPLATES_DIR=${ABOUT_ME_DIR}templates
+export MY_WRITING_TEMPLATE_DIR=${MY_TEMPLATES_DIR}/writing
+export MY_PRESENTATION_TEMPLATE_DIR=${MY_TEMPLATES_DIR}/presentation
 
 {{ if eq .chezmoi.os "linux" -}}
 # 
@@ -46,6 +47,8 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
 alias myq="squeue -u ntoyonaga"
+
+alias·scancelALL="squeue·-u·$USER·|·awk·'{print·$1}'·|·tail·-n+2·|·xargs·scancel"
 
 {{ end -}}
 
@@ -84,15 +87,25 @@ hrc_sync () {
 # Create New Latex Document.
 new_document () {
 	if (( ${#} == 0 )); then
-		NEW_NAME=new_article.tex
+		NEW_NAME=new_article
 	elif (( ${#} == 1)); then
 		NEW_NAME=${1}
 	fi
 	print  "creating new document: ${NEW_NAME}.tex"
-	cp ${MY_WRITING_TEMPLATE_DIR}basic_article.tex ./${NEW_NAME}.tex 
-	cp ${MY_WRITING_TEMPLATE_DIR}preamble.sty ./preamble.sty
+	cp ${MY_WRITING_TEMPLATE_DIR}/basic_article.tex ./${NEW_NAME}.tex 
+	cp ${MY_WRITING_TEMPLATE_DIR}/preamble.sty ./preamble.sty
 }
 
+# Create New PowerPoint Presentation.
+new_presentation () {
+	if (( ${#} == 0 )); then
+		NEW_NAME=new_presentation
+	elif (( ${#} == 1)); then
+		NEW_NAME=${1}
+	fi
+	print  "creating new presentation: ${NEW_NAME}.pptx"
+	cp ${MY_PRESENTATION_TEMPLATE_DIR}/basic_presentation.pptx ./${NEW_NAME}.pptx
+}
 
 # DOCUMENTATION.
 helpme () {
@@ -101,6 +114,9 @@ helpme () {
 
 	new_document
 		Makes a new Tex document in current folder using the default template (found at ${MY_WRITING_TEMPLATE_DIR}).
+
+	new_presentation	
+		Makes a new powerpoint document in current folder using the default template (found at ${MY_PRESENTATION_TEMPLATE_DIR}).
 
 	### DOTFILES ###
 	To show all dotfiles in a directory:
