@@ -15,6 +15,10 @@ export PATH={{ .tool_path }}nvim/bin:${PATH}
 
 {{ end -}}
 
+# Tools.
+export TOOL_PATH=~/.tools/
+export PATH=${PATH}:${TOOL_PATH}
+
 
 {{ if .vim_use_python -}}
 export VIMPYTHON='{{- .vim_python_path -}}'
@@ -71,6 +75,7 @@ alias·scancelALL="squeue·-u·$USER·|·awk·'{print·$1}'·|·tail·-n+2·|·x
 
 # Go to commands.
 alias cdd="cd ~/Documents"
+alias werk="cd ~/Documents/_1_THE_WORK"
 
 ## OVERRIDE ALIASES.
 # These aliases change the behaviour of existing functions/pograms.
@@ -80,6 +85,15 @@ alias mv="mv -i"
 
 # Default to use `nvim`.
 alias vim="nvim"
+
+# BEANPRINT
+{{ if hasKey . "defaultbeankey" }}
+export BEANKEY={{ .defaultbeankey }}
+{{- else -}}
+# Not defined on this machine. 
+# Edit `~/.config/chezmoi/chezmoi.toml` 
+{{- end }}
+export BEANNAME='noa'
 
 #################
 ### SHORTCUTS ###
