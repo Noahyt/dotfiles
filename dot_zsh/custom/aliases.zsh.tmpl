@@ -78,7 +78,7 @@ alias cdd="cd ~/Documents"
 alias werk="cd ~/Documents/_1_THE_WORK"
 
 ## OVERRIDE ALIASES.
-# These aliases change the behaviour of existing functions/pograms.
+# These aliases change the behaviour of existing functions/programs.
 
 # Change `mv` to default to check in before overwrite.
 alias mv="mv -i"
@@ -106,12 +106,20 @@ export WRITING="~/Documents/WRITING"
 # FOR `zathura`
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 
+
+
 # FUNCTIONS
 hrc_sync () {
 	SOURCE_FOLDER=${1}
 	DESTINATION_FOLDER=${2}
 	echo "sync ${SOURCE_FOLDER} with ${DESTINATION_FOLDER}"
-	rsync -avP --update ntoyonaga@login.rc.fas.harvard.edu:/n/holyscratch01/mahadevan_lab/ntoyonaga/${SOURCE_FOLDER} ${DESTINATION_FOLDER}
+	rsync -avP --update ntoyonaga@login.rc.fas.harvard.edu:${HRC_DATA}/${SOURCE_FOLDER} ${DESTINATION_FOLDER}
+}
+
+dirs_to_csv () {
+	PARENT_DIR=$(realpath ${1})
+	echo "Writing directories in ${PARENT_DIR} to ${PARENT_DIR}/dirs.csv"
+	find ${PARENT_DIR} -mindepth 1 -maxdepth 1 -type d >> ${PARENT_DIR}/dirs.csv
 }
 
 
