@@ -3,6 +3,10 @@
 
 ## SET UP
 
+Requirements:
+* Antigen (see `linux` section for special instructions.)
+* 
+
 In order for `chezmoi` to set up the dotfiles, it needs machine-specific information which must be manually 
 provided in a `chezmoi.toml` file located at `~/.config/chezmoi/chezmoi.toml`. 
 Further details can be found in the chezmoi documentation [here](https://www.chezmoi.io/user-guide/manage-machine-to-machine-differences/).
@@ -19,6 +23,20 @@ The current `chezmoi.toml` should have the following form:
 
 Note that `vim` may use a different python install than the various command line tools.
 
+### Mac
+
+### Linux
+
+If on linux, `antigen` must be manually installed [ link ][https://github.com/zsh-users/antigen ]. 
+
+Then, add an additional field to `chezmoi.toml`:
+
+```
+[data]
+   tool_path=${PATH_TO_TOOL}
+```
+
+## Other Packages
 
 ### VIM
 
