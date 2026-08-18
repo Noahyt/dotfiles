@@ -42,6 +42,9 @@ Then, add an additional field to `chezmoi.toml`:
 
 ### VIM
 
+Prerequisites: 
+   * Install `Vundle` [ link ][https://github.com/vundlevim/vundle.vim]
+
 Most of the vim customization/plugins should work out of the box. 
 However, some (specifically those that involve python e.g. `youcompleteme` and `black`) require more preparation.
 
