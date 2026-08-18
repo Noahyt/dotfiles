@@ -5,7 +5,6 @@
 
 Requirements:
 * Antigen (see `linux` section for special instructions.)
-* 
 
 In order for `chezmoi` to set up the dotfiles, it needs machine-specific information which must be manually 
 provided in a `chezmoi.toml` file located at `~/.config/chezmoi/chezmoi.toml`. 
@@ -25,9 +24,11 @@ Note that `vim` may use a different python install than the various command line
 
 ### Mac
 
-### Linux
+### Sherlock
 
-If on linux, `antigen` must be manually installed [ link ][https://github.com/zsh-users/antigen ]. 
+If on Sherlock, there are a number of additional complications associated with lack of basic/updated programs. 
+
+*  `antigen` must be manually installed [ link ][https://github.com/zsh-users/antigen ]. 
 
 Then, add an additional field to `chezmoi.toml`:
 
@@ -35,6 +36,7 @@ Then, add an additional field to `chezmoi.toml`:
 [data]
    tool_path=${PATH_TO_TOOL}
 ```
+
 
 ## Other Packages
 
@@ -49,6 +51,14 @@ This could be, e.g. one installed and managed by `brew`.
 (This requirement is because `youcompleteme` cannot be installed properly on a conda python.)
 
 Note that the $VIMPYTHON variable is set to `vim_python_path`.
+
+* If installing on Sherlock, the `VIM_PYTHON` virtual environment should only be created/activated/used to install packages after loading the following modules:
+
+   ```
+   module load python/3.14 # or higher
+   module load gcc/14 # or higher
+   ```
+
 
 #### set up
 
